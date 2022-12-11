@@ -1,28 +1,61 @@
-function launchTime() {
-  //constructor
-  let newDate = new Date();
-  var currentHours = ('0' + newDate.getHours() % 12).slice(-2);  
-  currentHours = currentHours ? currentHours : 12;
+function showTime() {
+  const time = new Date();
+  let hours = time.getHours();
+  const minutes = leadZero(time.getMinutes());
+  const seconds = leadZero(time.getSeconds());
+  const isAm = hours < 12 || hours === 0;
+  const amPm = isAm ? 'AM' : 'PM';
 
-  var currentTime = (currentHours + ":" + ('0' + newDate.getMinutes()).slice(-2) + ":" + ('0' + newDate.getSeconds()).slice(-2) + " " + (newDate.getHours() >= 12 ? 'PM' : 'AM'));
-  document.getElementById("now").innerText = currentTime;
+  document.getElementById("now").textContent = 
+  `${formatHour(hours)}:${minutes}:${seconds} ${amPm}`;
 }
 
-const today = new Date();
- 
-const daysOfTheWeek = [
+function showDate() {
+  const today = new Date();
+  const day = days[today.getDay()];
+  const date = appendDateSuffix(today.getDate());
+  const month = months[today.getMonth()];
+  const year = today.getFullYear();
+
+  document.getElementById("current").textContent =
+  `${day}, ${month} ${date}, ${year}`;
+}
+
+function leadZero(number) {
+  return number < 10 ? '0' + number : number;
+}
+
+function formatHour(hour) {
+  hour = hour >= 13 ? hour - 12 : hour;
+  hour = hour === 0 ? hour + 12 : hour; 
+  return hour
+}
+
+function appendDateSuffix(date) {
+  if(date < 10 || date > 20) {
+    switch (date % 10) {
+      case 1:
+        return `${date}st`;
+      case 2:
+        return `${date}nd`;  
+      case 3:
+        return `${date}rd`;
+    }
+  }
+  return `${date}th`;
+}
+
+const days = [
+      "Sunday",
       "Monday",
       "Tuesday",
       "Wednesday",
       "Thursday",
       "Friday",
-      "Saturday",
-      "Sunday"
+      "Saturday"
     ];
 
-let day = daysOfTheWeek[today.getDay()];
-
-const monthsOfTheYear = [
+const months = [
       "January",
       "February",
       "March",
@@ -37,24 +70,15 @@ const monthsOfTheYear = [
       "December"
     ];
 
-let month = monthsOfTheYear[today.getMonth()];
+setInterval(() => {
+  showTime();
+  showDate(); 
+}, 1000);
 
-let dayOf = today.getDate();
-let year = today.getFullYear();
-
-var current = document.getElementById("current");
-var date = (day + ", " + month + " " + dayOf + " " + year);  
-current.innerHTML = date;
-
-setInterval(launchTime, 1000);
-launchTime();
+showTime();
+showDate(); 
 
 
-/* The Date constructor creates a static Date object,
-then methods can be used to operate on it 
-
-JavaScript returns the Date in a string by default 
- */
 
 
 
