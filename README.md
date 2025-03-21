@@ -7,7 +7,7 @@ A basic digital clock written solely in JavaScript, HTML, and CSS.
 #### check it out [here](https://charlescarmichaellutz.github.io/digital-clock/)
 ---
 
-![digitalclock](https://user-images.githubusercontent.com/103493003/166343882-84581eda-abd0-4d48-a51d-2a78ec4007e2.PNG)
+![digital clock](https://github.com/user-attachments/assets/62b558f5-5a98-411a-8260-bb6f7361a2c9)
 
 ## Summary
 
