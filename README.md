@@ -22,4 +22,4 @@ tick at first, but managed to implement the setInterval function at last. I real
 pieces together and having the final product delivered.
 
 ### Author
-* __Charles Lutz__ - *Full-Stack Software Developer* - [**Personal Website**](https://master--resplendent-cocada-4ee40d.netlify.app/) | [**LinkedIn**](https://www.linkedin.com/in/CharlesCarMichaelLutz/)
+* __Charles Lutz__ - *Full-Stack Software Developer* - [**Personal Website**](https://charlescarmichaellutz.github.io/) | [**LinkedIn**](https://www.linkedin.com/in/CharlesCarMichaelLutz/)
